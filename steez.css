@@ -1,1 +1,115 @@
 /* Style on 'em with some baller shot-caller javascript bullshit */
+
+/* 
+
+font-family: 'Mansalva', cursive;
+font-family: 'VT323', monospace;
+
+*/
+
+/* GENERAL */
+
+body {
+    background-color: #000a12;
+}
+
+/* TEXT */
+.title{
+    font-family: 'VT323', monospace;
+    font-size: 2.7rem;
+}
+
+.link-text {
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: slategray;
+}
+
+.link-text:hover{
+    color: lightsalmon;
+    text-decoration: none;
+}
+
+.welcome{
+    font-family: 'VT323', monospace;
+    color: lightgoldenrodyellow;
+    font-size: 5rem;
+}
+
+.generic {
+    color: white;
+}
+
+.generic-alt {
+    font-family: 'VT323', monospace;
+    color: lightyellow;
+    font-size: 1.7rem;
+}
+
+.emph {
+    color: lightsalmon;
+}
+
+.header{
+    font-family: 'VT323', monospace;
+    color: lightyellow;
+    font-size: 3.5rem;
+}
+
+.header-alt{
+    font-family: 'VT323', monospace;
+    color: lightcoral;
+    font-size: 3.5rem;
+}
+
+.header-sm {
+    font-family: 'VT323', monospace;
+    color: lightsalmon;
+    font-size: 2rem;
+}
+
+/* DIVS */
+.holder {
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    align-content: center;
+}
+
+.holder-alt {
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    align-content: center;
+}
+
+.welcome-banner{
+    margin: auto;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.text-bloc {
+    position: relative;
+    margin: auto;
+    width: 65%;
+    padding: 1rem;
+    background-color: #263238;
+    text-align: center;
+}
+
+.spacer {
+    margin: 4.5rem;
+}
+.spacer-sm {
+    margin: 3rem;
+}
+
+.center {
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* IMGS */
