@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>pantheon.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="pantheon">Pantheon</h1>
+<h3 id="gods-goddesses-and-the-information-on-them">gods, goddesses, and the information on them</h3>
+<hr>
+<h2 id="lg">LG</h2>
+<ul>
+<li>
+<p>God of the Sun</p>
+</li>
+<li>
+<p>God of the Moon</p>
+</li>
+<li>
+<p>Goddess of the Forge</p>
+</li>
+</ul>
+<h2 id="ng">NG</h2>
+<ul>
+<li>Goddess of Redemption</li>
+</ul>
+<h2 id="cg">CG</h2>
+<ul>
+<li>
+<p>God of the Forests</p>
+</li>
+<li>
+<p>God of the Hearth</p>
+</li>
+</ul>
+<hr>
+<h2 id="ln">LN</h2>
+<ul>
+<li>God of the Underworld</li>
+</ul>
+<h2 id="nn">NN</h2>
+<ul>
+<li>
+<p>Goddess of Time</p>
+</li>
+<li>
+<p>Goddess of the Earth</p>
+</li>
+<li>
+<p>God of the Seas</p>
+</li>
+<li>
+<p>God of the Skys</p>
+</li>
+</ul>
+<h2 id="cn">CN</h2>
+<ul>
+<li>Goddess of Storms</li>
+</ul>
+<hr>
+<h2 id="le">LE</h2>
+<ul>
+<li>God of the Mines</li>
+</ul>
+<h2 id="ne">NE</h2>
+<ul>
+<li>Goddess of Punishment</li>
+</ul>
+<h2 id="ce">CE</h2>
+<ul>
+<li>
+<p>God of War</p>
+</li>
+<li>
+<p>Goddess of Volcanos</p>
+</li>
+</ul>
+<hr>
+<h2 id="family-ties">Family Ties</h2>
+<table>
+<thead>
+<tr>
+<th>God</th>
+<th>Name</th>
+<th>Father</th>
+<th>Mother</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>God of the Underworld</td>
+<td>Kuolema</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Goddess of Time</td>
+<td>Aika</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Goddess of the Earth</td>
+<td>Maa</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>God of the Seas</td>
+<td>Aalto</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>God of the Skys</td>
+<td>Taivas</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Goddess of Storms</td>
+<td>Myrsky</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>God of the Sun</td>
+<td>Aurinko</td>
+<td>Taivas</td>
+<td>Aika</td>
+</tr>
+<tr>
+<td>God of the Moon</td>
+<td>Kuu</td>
+<td>Taivas</td>
+<td>Aika</td>
+</tr>
+<tr>
+<td>Goddess of the Forge</td>
+<td>Seppa</td>
+<td>Kuolema</td>
+<td>Maa</td>
+</tr>
+<tr>
+<td>Goddess of Redemption</td>
+<td>Lunastus</td>
+<td>Kuolema</td>
+<td>Aika</td>
+</tr>
+<tr>
+<td>God of the Forests</td>
+<td>Metsa</td>
+<td>Aalto</td>
+<td>Maa</td>
+</tr>
+<tr>
+<td>God of the Hearth</td>
+<td>Tulisija</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>God of the Mines</td>
+<td>Kaivos</td>
+<td>Kuolema</td>
+<td>Maa</td>
+</tr>
+<tr>
+<td>Goddess of Punishment</td>
+<td>Synti</td>
+<td>Kuolema</td>
+<td>Aika</td>
+</tr>
+<tr>
+<td>God of War</td>
+<td>Sota</td>
+<td>Tulisija</td>
+<td>Seppa</td>
+</tr>
+<tr>
+<td>Goddess of Volcanos</td>
+<td>Tulivuori</td>
+<td>Tulisija</td>
+<td>Seppa</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="info">Info</h2>
+<h3 id="aika">Aika</h3>
+<blockquote>
+<p>Aliases: The Goddess of Time, Knowledge, The Allseer</p>
+<p>One of the 6 Ancients</p>
+<p>Constantly searching through time, wandering aimlessly through the past, present, and future. She doesn't seem to care much for the day to day goings-on of the world, but probably because she has seen the thousand outcomes it could have.</p>
+<p>Decription: Halfling, Very small, old woman. braided long grey hair, dressed very plainly in a simple natural fiber dress, does not have eyes.</p>
+<p>Goddess of : time, seekers of knowledge, libraries, education, schoalrs, learning</p>
+</blockquote>
+<hr>
+<h3 id="maa">Maa</h3>
+<blockquote>
+<p>Aliases: Goddess of the Earth</p>
+<p>One of the 6 Ancients</p>
+<p>Maa has been in a deep slumber for 10,000 years. She, Aalto, and Taivas would constantly clash together to try and gain power over the dominion, but eventually were subdued by Myrsky who cast a spell to make them sleep until their hearts quieted and their rage subdued</p>
+<p>Description: Dwarf, strong looking, dark brown skin, coal-black eyes, and green flowing hair, dressed in gold chain-mail</p>
+<p>Goddess of : the Earth, Mountains, Dwarves and Dwarvish Races</p>
+</blockquote>
+<hr>
+<h3 id="aalto">Aalto</h3>
+<blockquote>
+<p>Aliases: God of the Seas, The Great Tortle</p>
+<p>One of the 6 Ancients</p>
+<p>Aalto has been in a deep slumber for 10,000 years. He, Maa, and Taivas would constantly clash together to try and gain power over the dominion, but eventually were subdued by Myrsky who cast a spell to make them sleep until their hearts quieted and their rage subdued.</p>
+<p>Description: Tortle, Dark Blue Shell with Red Swirls, glowing green eyes, dressed in gold chain-mail</p>
+<p>God of: The Seas, Sailors, Creatures of the Sea, Tortles</p>
+</blockquote>
+<hr>
+<h3 id="taivas">Taivas</h3>
+<blockquote>
+<p>Aliases: God of the Sky, Holder of Stars</p>
+<p>One of the 6 Ancients</p>
+<p>Taivas has been in a deep slumber for 10,000 years. He, Maa, and Aalto would constantly clash together to try and gain power over the dominion, but eventually were subdued by Myrsky who cast a spell to make them sleep until their hearts quieted and their rage subdued.</p>
+<p>Description: Aligrine, Light blue / cream colord wings, very light skin, light blue eyes, dressed in gold chain-mail</p>
+<p>God of: The Skys, Winged Beasts, the Aligrine</p>
+</blockquote>
+<hr>
+<h3 id="myrsky">Myrsky</h3>
+<blockquote>
+<p>Aliases: Goddess of Storms, Goddess of Rain, The Crying Ancient, Tsunami Bringer, First Mother</p>
+<p>One of the 6 Ancients</p>
+<p>Myrsky was the goddess who put Aalto, Maa, and Taivas to sleep to protect the life of the domain from their fighting. She is deeply concerned with the wellbeing of all living things. Extremely tempermental, Myrsky has been known to bring terrible stroms to those who fall out of her favor and good farming weather for those who apease her. Mrsky is also known to be the creator of life in this Dominion along with Kuolema</p>
+<p>Description: Elf, Stark White hair and pale white eyes. Dressed in long flowing robes of indeterminate color</p>
+<p>Goddess of: Storms, Life, Love, Rage, Farmers</p>
+</blockquote>
+<hr>
+<h3 id="kuolema">Kuolema</h3>
+<blockquote>
+<p>Aliases: God of the Underworld, Death, the Judge, First Father</p>
+<p>One of the 6 Ancients</p>
+<p>Kuolema has a deep love living things, and presides over them as lord of the underworld. The underworld is a creation of Kuolema's and seperates those who die according to their lives. Kuolema is also known to be the creator of life in this Dominion along with Myrsky</p>
+<p>Description: Human, Golden Blonde hair in a set of three braids, tan skin, dark brown eyes, Dressed in a tunic of deep green</p>
+<p>God of: Death, The afterline, Love, Justice</p>
+</blockquote>
+<hr>
+<hr>
+<h3 id="aurinko">Aurinko</h3>
+<blockquote>
+<p>Aliases: God of the Sun, the Bright Star, Sundancer</p>
+<p>Younger Brother of Kuu</p>
+<p>Aurinko and Kuu are the eldest of the Gods after the 6 Ancients, and keep the sun and moon in order. Aurinko looks down proudly over the Earth, marching at a steady pace to keep the day</p>
+<p>Description: Halfling, tan skin, bright golden hair, shimmering gold eyes, dressed in a golden tunic</p>
+<p>God of the Sun, wheat</p>
+</blockquote>
+<hr>
+<h3 id="kuu">Kuu</h3>
+<blockquote>
+<p>Aliases: God of the Moon, the Calm Eye</p>
+<p>Elder Brother of Aurinko</p>
+<p>Aurinko and Kuu are the eldest of the Gods after the 6 Ancients, and keep the sun and moon in order. Kuu watches over the Earth at night, gazing on those that wander and shooing away bad dreams. Kuu every now and then wanders off to the mountains for a night to whittle a new walking stick, but always returns the next night</p>
+<p>Description: Halfling, pale skin, grey hair, soft green eyes, dressed in a dark colored tunic, always carrying a walking stick of some type of wood</p>
+<p>God of the Moon, dreams, wood carving</p>
+</blockquote>
+<hr>
+<h3 id="seppa">Seppa</h3>
+<blockquote>
+<p>Aliases: God of the Forge, The Master Smith, the Iron Goddess</p>
+<p>Younger Sister of Kaivos</p>
+<p>Seppa is the smith of the gods. Seppa spends most of her days in her forge deep below the Earth, crafting metalworks for the gods and greater spirits of the dominion. Seppa gets the ore for her craft from her brother Kaivos. Seppa is blind from when Kepkunema the deep dwarf collapsed Seppa's mine, causing dragon ore fragments to pierce her eyes</p>
+<p>Description: Half-Dwarf, soot-covered skin, dirty long hair flowing from under an iron half-healm without eyeholes, dressed in leather wrappings and a leather apron</p>
+<p>Goddess of the Forge, metalworkers, craftmen, the blind</p>
+</blockquote>
+<hr>
+<h3 id="lunastus">Lunastus</h3>
+<blockquote>
+<p>Aliases: Goddess of Redemption, Pitty</p>
+<p>Twin Sister of Synti</p>
+<p>Lunastus and Synti meet the dead at the foot of their father's throne when they first enter the underworld. Lunastus holds the good deads of the dead and makes their case to her father, Kuolema, before final judgement is made</p>
+<p>Description: Human, pale skin, brown hair, brown eyes, dressed in a red tunic</p>
+<p>Goddess of kind deeds, gentle words, and good thoughts</p>
+</blockquote>
+<hr>
+<h3 id="metsa">Metsa</h3>
+<blockquote>
+<p>Aliases: God of the Forests, Musiikki</p>
+<p>The youngest god</p>
+<p>Metsa is the god of the forests. He dances through the thickest wood and densest shrubbs to the sound of his flute, bringing joy and merriment as he goes. Metsa will not hesitate to help out a lost traveler or injured animal, and fiercly defends the wildlands of the Earth. Those who have been helped by metsa recall the distinct smell of rain and Queen Anne's Lace and the impressive flute that Metsa plays, which is at least three times as large as a normal flute and able to produce a dizzying range of tones and pitches</p>
+<p>Description: Anthousai, braided pale green hair, deep blue eyes that seem to twinkle, dressed in what looks to be a tunic made of vines and bark, always carring an impressively large and complicated bone flute</p>
+<p>God of the forests, beasts, wild things, music</p>
+</blockquote>
+<hr>
+<h3 id="tulisija">Tulisija</h3>
+<blockquote>
+<p>Aliases: God of the Hearth, the Master Cook, The First Friend</p>
+<p>The god of men</p>
+<p>No one knows when Tulisija first appeard, but the people of the ancient city of Dren noticed the children giggling and playing by the hearth-fires in the dead of winter. Tulisija made himself known to the people of Dren one pirticularly horrible winter when their grain went bad, teaching them to cook the grains into bread, helping them survive the winter</p>
+<p>Description: Gnome, very portly, brown shoulder length hair, rosey cheeks, dressed in various furs, carrying a sack of flour and a string of smoked meats</p>
+<p>God of the hearth, homes, cooking, baking, cooks, bakers, friendship, community</p>
+</blockquote>
+<hr>
+<hr>
+<h3 id="kaivos">Kaivos</h3>
+<blockquote>
+<p>Aliases: God of the Mines, The Greedy Serpent</p>
+<p>Older brother of Seppa</p>
+<p>Kaivos is the older brother of Seppa. Kaivos was charged with watching over Seppa, but one day while she mined, Kaivos discoverd the Diamond of Maa, and overtaken by greed, left Seppa to try and take the diamond. When Seppa's mine caved in, Kaivos rushed to her, but was too late to keep her safe. Now, Kaivos digs through mines to get the ore for his sister's work, killing all mortals who get too close to Seppa's forge and any mortals who Kaivos deems too greedy from what they take from the Earth</p>
+<p>Description: Half-Dwarf, very dark skin, sunken cheeks, blood-shot eyes, jet black short hair, dressed in a raggity blue tunic</p>
+<p>God of the Mines, miners, siblings</p>
+</blockquote>
+<hr>
+<h3 id="synti">Synti</h3>
+<blockquote>
+<p>Aliases: Goddess of Punishment, Justice</p>
+<p>Twin Sister of Lunastus</p>
+<p>Lunastus and Synti meet the dead at the foot of their father's throne when they first enter the underworld. Synti holds the sins of the dead and presents them to her father, Kuolema, before final judgement is made</p>
+<p>Description: Human, pale skin, silver hair, brown eyes, dressed in a red tunic</p>
+<p>Goddess of the Punishment, justice</p>
+</blockquote>
+<hr>
+<h3 id="sota">Sota</h3>
+<blockquote>
+<p>Aliases: God of War, The Glaive-Weilder</p>
+<p>younger brother of Tulivouri</p>
+<p>Sota was always agressive as a child; always trying to fight something to gain more prestige. Seppa, mad that her work was being used to hunt peaceful beasts, tried to take away his glaive, but Sota learned of the plot, and broke Seppa's hammer before he ran. Now shunned by the gods, Sota enrages the kingdoms with falsehoods to have more opponents to fight</p>
+<p>Description: Half-Gnome, fully clad in dented and blood-rusted plate-mail, always holding a large and ornate glaive and square shield</p>
+<p>God of war, soilders, gladiators, glory</p>
+</blockquote>
+<hr>
+<h3 id="tulivouri">Tulivouri</h3>
+<blockquote>
+<p>Aliases: Goddess of Volcanoes, Goddess of Fire</p>
+<p>older sister of Sota</p>
+<p>Tulivouri was always known to have a terrible temper, like her brother Sota. Her grandmother, Maa, decided to watch over Tulivouri, but when Maa was put to sleep by Myrsky, Tulivouri's rage and anguish boiled over and destroyed a hundred towns with the lava flow</p>
+<p>Description: Half-Gnome, pale skin, red hair, red-tinted eyes, fully clad in a tunic of fire</p>
+<p>Goddess of Volcanoes, fire</p>
+</blockquote>
+<hr>
+
+</body>
+</html>
