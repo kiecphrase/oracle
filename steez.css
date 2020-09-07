@@ -30,6 +30,17 @@ body {
     text-decoration: none;
 }
 
+.link-text-alt {
+    font-family: 'VT323', monospace;
+    font-size: 1.7rem;
+    color: slategray;
+}
+
+.link-text-alt:hover{
+    color: lightsalmon;
+    text-decoration: none;
+}
+
 .welcome{
     font-family: 'VT323', monospace;
     color: lightgoldenrodyellow;

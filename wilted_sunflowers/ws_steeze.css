@@ -1,0 +1,122 @@
+/* 
+
+font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Serif', serif;
+
+*/
+
+/* GENERAL */
+body{
+    background-color: #f6f7d4;
+}
+
+/* TEXT */
+.title{
+    font-family: 'Noto Serif', serif;
+    font-size: 2.7rem;
+    color: #2b1d00;
+}
+
+.link-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #a07009;
+}
+
+.link-text:hover{
+    color: #2b1d00;
+    text-decoration: none;
+}
+
+.link-text-hub {
+    color: #2b1d00;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    
+}
+
+.link-text-hub:hover{
+    color: #a07009;
+    text-decoration: none;
+}
+
+.chapter-num{
+    font-size: 5rem;
+    color: tomato;
+    font-family: 'Noto Serif', serif;
+}
+.chapter-title{
+    font-size: 3.5rem;
+    color: rgb(175, 76, 59);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cs {
+    padding-top: 10rem;
+    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    color: tomato;
+
+}
+
+.header{
+    font-family: 'Montserrat', sans-serif;
+    color: tomato;
+    font-size: 3.5rem;
+}
+
+.bloc-text{
+    color: #2b1d00;
+    font-family: 'Noto Serif', serif;
+}
+
+/* DIVS */
+
+.body-bg{
+    background-image:url('images/sunflowers.gif');
+    background-size: cover;
+}
+
+.main-hold {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    margin: 0%;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.main-hold-simple {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: 0%;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.clean-align {
+    padding-top: 10rem;
+}
+
+.text-bloc {
+    position: relative;
+    margin: auto;
+    width: 65%;
+    padding: 1rem;
+    background-color: #fbc687;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.top-spacer{
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+.spacer{
+    padding-top: 4.5rem;
+}
+/* IMAGES */
