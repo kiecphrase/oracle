@@ -72,8 +72,15 @@ body{
 
 /* DIVS */
 
-.body-bg{
+/* Chapter 1 */
+/* .body-bg{
     background-image:url('images/sunflowers.gif');
+    background-size: cover;
+} */
+
+/* Chapter 2 */
+.body-bg{
+    background-image:url('images/threeplaces.gif');
     background-size: cover;
 }
 
